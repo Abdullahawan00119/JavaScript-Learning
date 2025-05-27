@@ -55,8 +55,7 @@
 
 
 // Task 5: Quote with Author
-// "The only limit is your mind." - John Doe
-var quote = prompt("Enter the Quote");
-var autherName = prompt("Enter the author name!");
-alert(quote + ". " + "- " + autherName)
+// var quote = prompt("Enter the Quote");
+// var autherName = prompt("Enter the author name!");
+// alert(quote + ". " + "- " + autherName)
 
