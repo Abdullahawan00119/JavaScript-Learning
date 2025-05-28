@@ -40,7 +40,7 @@
 // true
 
 
-console.log(true && 'hello' === 'hello' || 9 * 2 === 18 && 6 + 2 === 8 || false && 7 > 3);
+// console.log(true && 'hello' === 'hello' || 9 * 2 === 18 && 6 + 2 === 8 || false && 7 > 3);
 // true && true || true && true || false && true
 // true || true || false 
 // true
