@@ -132,6 +132,9 @@ function zeroChecker() {
 function citizenChecker(){
     var userAge = +prompt("Please Enter your Age!");
     if(userAge >= 60){
-        alert
-    }
+        alert("You are a senior citizen.")
+    } else(
+        alert("You are not a senior.")
+
+    )
 }
