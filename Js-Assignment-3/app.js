@@ -121,20 +121,93 @@ function getFullName() {
 // Create a function that takes a number (0–100) and returns:
 // ● "Pass" if the score is 40 or more
 // ● "Fail" if it is less than 40
-function getGrade(number) {
+function getGrade() {
+    var number = +prompt("Enter the obtained Numbers!");
     if (number < 0 || number > 100) {
-        return "out of range !"
+        alert("out of range !");
     } else if (number >= 40) {
-        return "Pass!"
+        alert("Pass!");
     } else {
-        return "Fail!"
+        alert("Fail!");
     }
 }
-var number = +prompt("Enter the obtained Numbers!");
-var result = getGrade(number);
-alert(result)
 
 
+// 13. isTeenager
+// Write a function that takes an age and returns "Teenager" if the age is between 13
+// and 19, otherwise return "Not a Teenager".
 
+function isTeenager() {
+    var userAge = +prompt("Enter your age!");
+    if (userAge >= 13 && userAge <= 19) {
+        alert("Teenager");
+    } else {
+        alert("Not a Teenager");
+    }
+}
 
+// 14. greetUser
+// Write a function that takes a name and returns a greeting like "Hello, Ahmed!".
+function greetUser() {
+    var userName = prompt("Please Enter your Name!");
+    alert(`Hello, ${userName}!`)
 
+}
+// 15. isEligibleToVote
+// Create a function that takes age and returns "Eligible" if age is 18 or above,
+// otherwise "Not Eligible".
+function isEligibleToVote() {
+    var userAge = +prompt("Enter your age!");
+    if (userAge >= 18) {
+        alert("Eligible");
+    } else {
+        alert("Not Eligible");
+    }
+}
+
+// 16. findAbsoluteValue
+// Write a function that returns the absolute value of a number (no Math.abs, use if-else
+// only).
+function findAbsoluteValue() {
+    var userNumber = +prompt("Please Enter the Number!");
+    if (userNumber < 0) {
+        alert(-userNumber);
+    } else {
+        alert(userNumber);
+    }
+}
+
+// 17. checkTemperature
+// Write a function that takes a temperature and returns:
+// ● "Hot" if temperature is above 30
+// ● "Cold" if below 10
+// ● "Normal" otherwise
+
+function checkTemperature() {
+    var temperature = +prompt("Enter the Temperature!");
+    if (temperature > 30) {
+        alert("Hot");
+    } else if (temperature < 10) {
+        alert("Cold");
+    } else {
+        alert("Normal!")
+    }
+}
+
+// 18. getTriangleType
+// Create a function that takes 3 sides and returns:
+// ● "Equilateral" if all are equal
+// ● "Isosceles" if any two are equal
+// ● "Scalene" if all are different
+function getTriangleType() {
+    var num1 = +prompt("Enter the First Side!");
+    var num2 = +prompt("Enter the Second Side!");
+    var num3 = +prompt("Enter the Third Side!");
+    if(num1 === num2 && num2 === num3){
+        alert("Equilateral!")
+    } else if(num1 === num2 || num2 === num3 || num1 === num3){
+        alert("Isosceles!")
+    } else {
+        alert("Scalene!")
+    }
+}
