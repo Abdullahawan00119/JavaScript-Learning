@@ -33,7 +33,7 @@ function DeleteAllToDo() {
 }
 function Edit(index) {
     var updatedValue = prompt("Enter the Updated ToDo!");
-    if (updatedValue === "") {
+    if (!updatedValue.trim()) {
         return alert("Please enter the Updated Todo")
     }
     todoArray.splice(index, 1, updatedValue);
