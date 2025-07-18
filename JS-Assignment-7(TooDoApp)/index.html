@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+
+
+<body class="bg-gradient-to-br from-gray-100 to-blue-100 min-h-screen flex items-center justify-center">
+
+    <div class="bg-white p-6 rounded-2xl shadow-xl w-full max-w-md">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">My To-Do List</h2>
+
+        <div class="flex gap-2 mb-4">
+            <input type="text" id="TodosInput" placeholder="Enter your Todo"
+                class="flex-1 px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+            <button onclick="addToDo()"
+                class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-xl">Add</button>
+        </div>
+
+        <button onclick="DeleteAllToDo()"
+            class="w-full mb-4 bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-xl">Delete
+            All</button>
+
+        <ul id="ToDoList" class="space-y-3">
+            <!-- ToDo Items Render Here -->
+        </ul>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+
+
+
+
+</html>

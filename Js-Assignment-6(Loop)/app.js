@@ -49,7 +49,7 @@
 // var result = "";
 // for (let i = 0; i < cities.length; i++){
 //     result += cities[i] + " , ";
-//       document.querySelector("#cities").innerHTML = result 
+//       document.querySelector("#cities").innerHTML = result
 // }
 
 
@@ -83,3 +83,96 @@
 // }
 // console.log(count);
 
+
+// 38. Create a loop that counts how many numbers in [5, 10, 15, 20, 25] are greater than or
+// equal to the average of the array.
+
+// var numbers = [5, 10, 15, 20, 25];
+// var sum = 0;
+// for (let i = 0; i < numbers.length; i++) {
+//     sum += numbers[i];
+// }
+// var numAverage = sum / numbers.length;
+// var count = 0;
+// for (let i = 0; i < numbers.length; i++) {
+//     if (numbers[i] >= numAverage) {
+//         count++
+//     }
+// }
+// console.log(count);
+
+// 37. Write a loop that checks whether all numbers in an array [2, 4, 6, 8] are even.
+// var numbers = [2, 4, 6, 8];
+// for (let i = 0; i < numbers.length; i++) {
+//     if (numbers[i] % 2 === 0){
+//        console.log(`This number is even ${numbers[i]}`);
+
+//     }
+// }
+
+
+// 36. Given an array [1, 2, 3, 4, 5, 6], use a loop to swap the first and last elements.
+// var numbers = [1, 2, 3, 4, 5, 6];
+// for (let i = 0; i < numbers.length; i++) {
+//     if (i === 0) {
+//           var swap = numbers[i];
+//           numbers[i] = numbers[numbers.length - 1];  
+//           numbers[numbers.length - 1] = swap;
+//           break;
+//     }
+// }
+// console.log(numbers);
+
+// 35. Use a loop to remove all zeroes from an array [0, 1, 0, 3, 0, 5] and store the non-zero elements in a new array.
+// var numbers = [0, 1, 0, 3, 0, 5];
+// var nonZeroNumbers = [];
+// for (let i = 0; i < numbers.length; i++) {
+//   if(numbers[i] !== 0){
+//      nonZeroNumbers += numbers[i]
+//   }
+// }
+// console.log(nonZeroNumbers);
+
+// 34. Loop through an array of numbers and create a new array that only contains odd numbers.
+// var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// var oddNumbers = [];
+// for (let i = 0; i < numbers.length; i++) {
+//   if(numbers[i] % 2 !== 0){
+//       oddNumbers.push(numbers[i]) 
+//   }
+// }
+// console.log(oddNumbers);
+
+
+// 33. Given an array [0, -1, -5, 6, 8, -3], count how many negative numbers are in the array.
+// var numbers = [0, -1, -5, 6, 8, -3];
+// var count = 0;
+// for (let i = 0; i < numbers.length; i++) {
+//     if (numbers[i] < 0) {
+//         count++
+//     }
+// }
+// console.log(count);
+
+
+// 32. Create a loop that finds the difference between the largest and smallest numbers in an array [11, 4, 99, 2, 47].
+// var numbers = [11, 4, 99, 2, 47];
+// var greaterNumber = numbers[0];
+// var lessNumber= numbers[0];
+// for (let i = 0; i < numbers.length; i++) {
+//     if (numbers[i] > greaterNumber) {
+//         greaterNumber = numbers[i]
+//     } else if (numbers[i] < lessNumber) {
+//         lessNumber = numbers[i]
+//     }
+// }
+// console.log(greaterNumber - lessNumber);
+
+// 31. Write a loop that finds and prints all the prime numbers between 1 and 50.
+var primeNumbers = [] ;
+for (let i = 1; i <= 50; i++) {
+if(i  0){
+   primeNumbers.push(i);
+}
+}
+console.log(primeNumbers);
