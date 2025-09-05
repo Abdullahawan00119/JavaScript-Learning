@@ -145,3 +145,69 @@
 // 4. Count Word Frequencies
 // Given a paragraph from a textarea, count the frequency of each word and display it as a
 // list.
+
+// function check() {
+//     let textArea = document.querySelector("#textArea");
+//     textAreaValue = textArea.value.trim();
+//     if (!textAreaValue) {
+//         return alert("Enter the text")
+//     }
+//     let wordsArray = textAreaValue.split(" ");
+//     let wordCount = {};
+//     for (let i = 0; i < wordsArray.length; i++) {
+//         let words = wordsArray[i].toLowerCase();
+//         if (wordCount[words]) {
+//             wordCount[words] += 1;
+//         } else {
+//             wordCount[words] = 1;
+//         }
+//     }
+//     console.log(wordCount);
+//     let list = document.querySelector("#list");
+//     for (let words in wordCount) {
+//         list.innerHTML += `<li>${words} ${wordCount[words]} </li>`
+//     }
+
+//     textArea.value = " ";
+//     wordsArray = []
+
+// }
+
+
+// Given an array of user objects ({name, role}), group and display users under role
+// headings.
+
+// function check() {
+//     let users = [
+//         { name: "Abdullah", role: "CEO" },
+//         { name: "Ali", role: "Admin" },
+//         { name: "Rehman", role: "Designer" },
+//         { name: "Alisha", role: "Admin" },
+//         { name: "Maheen", role: "Designer" },
+//         { name: "Shyan", role: "Editor" },
+//         { name: "Rashid", role: "Technician" },
+//         { name: "Rizwan", role: "Editor" },
+//         { name: "Sadat", role: "Technician" }
+//     ];
+//     let rloeObject = {};
+//     for (let i = 0; i < users.length; i++) {
+//         if (!rloeObject[users[i].role]) {
+//             rloeObject[users[i].role] = [];
+//         }
+//         rloeObject[users[i].role].push(users[i].name)
+//     }
+//     let resultDiv = document.getElementById("result");
+// }
+
+
+// 9. Calculate Cart Total
+// Given an array of cart items ({name, price, quantity}), display a full cart with
+// totals using DOM.
+
+function productDetail(){
+    window.location = "ProductDetailPage1.html"
+}
+function addCart(){
+    window.location = "AddCart.html"
+    
+}
