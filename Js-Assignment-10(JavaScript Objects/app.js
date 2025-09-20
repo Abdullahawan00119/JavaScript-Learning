@@ -204,10 +204,87 @@
 // Given an array of cart items ({name, price, quantity}), display a full cart with
 // totals using DOM.
 
-function productDetail(){
-    window.location = "ProductDetailPage1.html"
+// let Products = [
+//   {
+//     img: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700",
+//     discount: "50%",
+//     category: "Fancy Outfit",
+//     by: "by Fancy Brand",
+//     afterPrice: 199.99,
+//     beforePrice: 250
+//   },
+//   {
+//     img: "https://images.unsplash.com/photo-1523359346063-d879354c0ea5?auto=format&q=75&fit=crop&crop=top&w=600&h=700",
+//     category: "Cool Outfit",
+//     by: "by Cool Brand",
+//     afterPrice: 29,
+//   },
+//   {
+//     img: "https://images.unsplash.com/photo-1548286978-f218023f8d18?auto=format&q=75&fit=crop&crop=top&w=600&h=700",
+//     category: "Nice Outfit",
+//     by: "by Nice Brand",
+//     afterPrice: 500,
+//   },
+//   {
+//     img: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700",
+//     category: "Abdullah Outfit",
+//     by: "by Abdullah Brand",
+//     afterPrice: 300,
+//   },
+// ]
+
+// let result = document.querySelector("#display");
+// for (let i = 0; i < Products.length; i++) {
+//   let display = ` <div>
+
+//         <a  href="#" class="group relative mb-2 block h-96 overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:mb-3">
+//           <img src=${Products[i].img} loading="lazy" alt="Photo by Austin Wade" class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+
+//         </a>
+
+//         <div class="flex items-start justify-between gap-2 px-2">
+//           <div class="flex flex-col">
+//             <a href="#" class="text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-xl">${Products[i].category}</a>
+//             <span class="text-gray-500">${Products[i].by}</span>
+//           </div>
+
+//           <div class="flex flex-col items-end">
+//             <span class="font-bold text-gray-600 lg:text-lg">$ ${Products[i].afterPrice}</span>
+//           </div>
+//           <button onclick="cart(${i})">Cart</button>
+//         </div>
+//       </div>`
+
+
+//   result.innerHTML += display;
+
+// }
+// let cartArray = [];
+// function cart(index) {
+//   let productArray = Products[index];
+//   // console.log(productArray);
+//   cartArray.push(productArray);
+//   console.log(cartArray);
+// }
+// function cartPage() {
+//   localStorage.setItem("cartItems", JSON.stringify(cartArray));
+//   window.location = "AddCart.html"
+// }
+
+
+
+// . Dynamic Form Inputs to Object  
+// Create a form with name, email, and age.On submit, convert the input into an object 
+// and show the result. 
+let name = document.querySelector("#name");
+let email = document.querySelector("#email");
+let age = document.querySelector("#age");
+let rejexValidation = {
+  fullName :
 }
-function addCart(){
-    window.location = "AddCart.html"
+function submit(){
+  // e.prevent.Default
     
-}
+
+
+} 
