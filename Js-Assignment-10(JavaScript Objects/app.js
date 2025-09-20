@@ -276,15 +276,150 @@
 // . Dynamic Form Inputs to Object  
 // Create a form with name, email, and age.On submit, convert the input into an object 
 // and show the result. 
-let name = document.querySelector("#name");
-let email = document.querySelector("#email");
-let age = document.querySelector("#age");
-let rejexValidation = {
-  fullName :
-}
-function submit(){
-  // e.prevent.Default
-    
+// let name = document.querySelector("#name");
+// let email = document.querySelector("#email");
+// let age = document.querySelector("#age");
+// let rejexValidation = {
+//   fullName: /^[A-Z][a-z]+(?:\s[A-Z][a-z]+)+$/,
+//   emailRegix: /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/,
+//   ageRegix: /^(1[89]|[2-3][0-9]|40)$/
+// }
+// let inputValue = {}
+// function submit() {
+//   // e.prevent.Default
+//   if (!name.value && !email.value && !age.value) {
+//     return Swal.fire("Please fill all the fields!")
+//   }
+//   if (!rejexValidation.fullName.test(name.value)) {
+//     return Swal.fire("Invalid Age!", "Enter the Full Name.", "error")
+//   }
+//   if (!rejexValidation.emailRegix.test(email.value)) {
+//     return Swal.fire("Invalid Age!", "Enter the valid Email.", "error")
+//   }
+//   if (!rejexValidation.ageRegix.test(age.value)) {
+//     return Swal.fire("Invalid Age!", "Age must be between 18 to 40.", "error")
+//   }
+//   inputValue.name = name.value
+//   inputValue.email = email.value
+//   inputValue.age = age.value
+//   console.log(inputValue);
+//   Swal.fire("Success!", "Form submitted successfully.", "success");
+
+//   name.value = ""
+//   email.value = ""
+//   age.value = ""
+// }
 
 
-} 
+//    14. Edit Object in List
+// Display a list of users with "Edit" buttons. On click, allow editing and update the object
+// and UI.
+// let users = [
+//   { user: "Abdullah" },
+//   { user: "Abdul Rehman" },
+//   { user: "Shyan" },
+//   { user: "Rizwan" },
+// ]
+
+
+
+// let listUser = document.querySelector("#list");
+// function render() {
+//   listUser.innerHTML = ""
+//   for (let i = 0; i < users.length; i++) {
+//     let displayList = `
+//     <ol class="list-decimal pl-6 space-y-5">
+//       <li class="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-gray-100 p-4 rounded-lg shadow">
+//         <span class="font-medium text-gray-800 mb-2 sm:mb-0">${users[i].user}</span>
+//         <div class="flex space-x-2 w-full sm:w-auto">
+//           <button
+//             onclick="edit(${i})"
+//             class="px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 transition w-full sm:w-auto">
+//             Edit
+//           </button>
+//           <button
+//             onclick="deleteUser(${i})"
+//             class="px-4 py-2 rounded-md bg-red-500 text-white hover:bg-red-600 transition w-full sm:w-auto">
+//             Delete
+//           </button>
+//         </div>
+//       </li>
+//     </ol>
+//   `;
+
+//     listUser.innerHTML += displayList;
+//   }
+
+// }
+// render()
+// function edit(index) {
+//   let userUpdated = prompt("enter the Updated user Name");
+//   users[index].user = userUpdated;
+//   render()
+// }
+
+// function deleteUser(index) {
+//   Swal.fire({
+//     title: "Are you sure?",
+//     text: "This user will be deleted permanently!",
+//     icon: "warning",
+//     showCancelButton: true,
+//     confirmButtonText: "Yes, delete it!",
+//     cancelButtonText: "Cancel"
+//   }).then((result) => {
+//     if (result.isConfirmed) {
+//       users.splice(index, 1);   // delete from array
+//       render();                 // re-render list
+//       Swal.fire("Deleted!", "The user has been removed.", "success");
+//     }
+//   });
+// }
+
+
+// function deleteAll() {
+//   Swal.fire({
+//     title: "Are you sure?",
+//     text: "All user will be deleted permanently!",
+//     icon: "warning",
+//     showCancelButton: true,
+//     confirmButtonText: "Yes, delete all!",
+//     cancelButtonText: "Cancel"
+//   }).then((result) => {
+//     if (result.isConfirmed) {
+//       users = []
+//       console.log(users);
+//       render();
+//       Swal.fire("Deleted!", "The user has been removed.", "success");
+//       if (users.length === 0) {
+//         document.querySelector("#deleteBtn").style.display = "none";
+//       } else {
+//         document.querySelector("#deleteBtn").style.display = "inline-block";
+//       }
+//     }
+//   });
+// }
+
+
+
+// 6. Frequency of Characters  
+// Take an input string, count character frequencies using an object, and display results.  
+// let textInput = document.querySelector("#textInput");
+// function frequency() {
+//   let inputArray = textInput.value.split("")
+//   let fre = {}
+//   for (let i = 0; i < inputArray.length; i++) {
+//     let letters = inputArray[i].toLowerCase();
+//     if (fre[letters]) {
+//       console.log("include ha ");
+//       fre[letters] += 1;
+//     } else {
+//       fre[letters] = 1;
+//     }
+//   }
+//   console.log(fre);
+// }
+
+
+
+
+
