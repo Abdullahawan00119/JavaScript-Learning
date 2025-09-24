@@ -1,13 +1,12 @@
 const cartRece = JSON.parse(localStorage.getItem("cartArray"));
 const cartshow = document.querySelector("#cartshow");
+let multiPrice;
 const renderCartFun = () => {
-    const cartDisplay = cartRece.map((item, index) => {
-         cartshow.innerHTML = ""
-        const multiPrice = item.price * item.qty;
-        cartshow.innerHTML += `<div class="bg-white py-6 sm:py-8 lg:py-12">
-  <div class="mx-auto max-w-screen-lg px-4 md:px-8">
-  
+  const cartDisplay = cartRece.map((item, index) => {
 
+    multiPrice = item.price * item.qty;
+    cartshow.innerHTML += `<div class="bg-white py-6 sm:py-8 lg:py-12">
+  <div class="mx-auto max-w-screen-lg px-4 md:px-8">
     <div class="mb-5 flex flex-col sm:mb-8 sm:divide-y sm:border-t sm:border-b">
       <!-- product - start -->
       <div class="py-5 sm:py-8">
@@ -40,21 +39,41 @@ const renderCartFun = () => {
           </div>
 
           <div class="flex w-full justify-between border-t pt-4 sm:w-auto sm:border-none sm:pt-0">
-            <div class="flex flex-col items-start gap-2">
-              <div class="flex h-12 w-20 overflow-hidden rounded border">
-                <input type="number" value="1" class="w-full px-4 py-2 outline-none ring-inset ring-indigo-300 transition duration-100 focus:ring" />
+           <div class="flex flex-col items-start gap-3">
+  <!-- Qty Box -->
+  <div class="flex h-12 w-28 items-center rounded-lg border shadow-sm overflow-hidden">
+    <button 
+      class="flex w-10 h-full items-center justify-center bg-gray-100 text-lg font-bold hover:bg-gray-200 active:bg-gray-300 transition"
+      onclick="decrement(${index})">
+      −
+    </button>
 
-                <div class="flex flex-col divide-y border-l">
-                  <button class="flex w-6 flex-1 select-none items-center justify-center bg-white leading-none transition duration-100 hover:bg-gray-100 active:bg-gray-200">+</button>
-                  <button class="flex w-6 flex-1 select-none items-center justify-center bg-white leading-none transition duration-100 hover:bg-gray-100 active:bg-gray-200">-</button>
-                </div>
-              </div>
+    <input 
+      type="number" 
+      value=${cartRece[index].qty} 
+      id="inputQty-${index}" 
+      class="w-full text-center text-base font-medium outline-none border-x px-2 py-1" 
+      readonly
+    />
 
-              <button class="select-none text-sm font-semibold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"onclick="deleteItem('${index}')">Delete</button>
-            </div>
+    <button 
+      class="flex w-10 h-full items-center justify-center bg-gray-100 text-lg font-bold hover:bg-gray-200 active:bg-gray-300 transition"
+      onclick="increment(${index})">
+      +
+    </button>
+  </div>
+
+  <!-- Delete Button -->
+  <button 
+    class="rounded-md bg-red-500 px-3 py-1 text-sm font-semibold text-white shadow-sm hover:bg-red-600 active:bg-red-700 transition"
+    onclick="deleteItem(${index})">
+    Delete
+  </button>
+</div>
+
 
             <div class="ml-4 pt-3 sm:pt-2 md:ml-8 lg:ml-16">
-              <span class="block font-bold text-gray-800 md:text-lg">$${multiPrice}</span>
+              <span class="block font-bold text-gray-800 md:text-lg">$${Math.floor(cartRece[index].price * cartRece[index].qty)}</span>
             </div>
           </div>
         </div>
@@ -63,25 +82,39 @@ const renderCartFun = () => {
     </div>
   </div>
 </div>`
-    })
+  })
 }
-renderCartFun()
+renderCartFun();
+const increment = (index) => {
+  cartRece[index].qty += 1;
+  totalCard();
+  cartshow.innerHTML = ""
+  renderCartFun()
+  localStorage.setItem("check", JSON.stringify(cartRece));
+};
+
+const decrement = (index) => {
+  if (cartRece[index].qty <= 1) {
+    deleteItem()
+  }
+  if (cartRece[index].qty > 1) {
+    cartRece[index].qty -= 1;
+  }
+  totalCard();
+  cartshow.innerHTML = ""
+  renderCartFun()
+  localStorage.setItem("check", JSON.stringify(cartRece));
+}
 
 
-// const deleteItem = (index) => {
-//     cartRece.splice(index, 1);
-//     console.log(index);
-
-//     renderCartFun()
-//     location.reload()
-// }
 
 
-
-const Subtotal = cartRece.map(item => item.price * item.qty).reduce((acc, cval) => acc + cval, 0);
-const roundSubtotal = Math.floor(Subtotal);
-const total = document.querySelector("#total");
-const totalDispaly = total.innerHTML = `
+const totalCard = () => {
+  const Subtotal = cartRece.map(item => item.price * item.qty).reduce((acc, cval) => acc + cval, 0);
+  const roundSubtotal = Math.floor(Subtotal);
+  const total = document.querySelector("#total");
+  const dilivery = Subtotal === 0 ? 0 : 5;
+  const totalDispaly = total.innerHTML = `
  <div class="flex flex-col items-end gap-4">
       <div class="w-full rounded-lg bg-gray-100 p-4 sm:max-w-xs">
         <div class="space-y-1">
@@ -101,7 +134,7 @@ const totalDispaly = total.innerHTML = `
             <span class="text-lg font-bold">Total</span>
 
             <span class="flex flex-col items-end">
-              <span class="text-lg font-bold">$${roundSubtotal + 5} USD</span>
+              <span class="text-lg font-bold">$${roundSubtotal + dilivery} USD</span>
             </span>
           </div>
         </div>
@@ -111,3 +144,14 @@ const totalDispaly = total.innerHTML = `
     </div>
     <!-- totals - end -->
 `
+}
+totalCard()
+
+
+const deleteItem = (index) => {
+  cartshow.innerHTML = ""
+  cartRece.splice(index, 1);
+  renderCartFun()
+  totalCard()
+  localStorage.setItem("check", JSON.stringify(cartRece));
+}
