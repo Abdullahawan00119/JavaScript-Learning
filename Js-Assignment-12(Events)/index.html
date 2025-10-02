@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <!-- <style>
+        #light {
+            background: white;
+            color: black;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* Dark Mode */
+        .dark {
+            background: black !important;
+            color: white !important;
+        }
+    </style> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body id="light">
+    <!-- <div>
+        <button id="btn">Click me</button>
+        <input type="color" id="colorInput">
+    </div> -->
+    <!-- <input type="text" placeholder="Enter some thing!" id="inputChange"> -->
+
+    <!-- 
+    <div>
+        <button id="btnToogle">light</button>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti sed reiciendis tempore dolorum quam recusandae aperiam? Illum vero obcaecati eaque!</p> -->
+
+    <!-- <div id="Parent">
+        <button id="child">Clicked Me</button>
+    </div> -->
+
+    <!-- 
+     <ul class="images">
+        <li><img width="200px" height="200px"
+                src="https://images.pexels.com/photos/18424236/pexels-photo-18424236/free-photo-of-wood-light-house-architecture.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="" id="image-1"></li>
+        <li><img width="200px" height="200px"
+                src="https://images.pexels.com/photos/18110788/pexels-photo-18110788/free-photo-of-italian-street.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="" id="image-2"></li>
+        <li><img width="200px" height="200px"
+                src="https://images.pexels.com/photos/17236943/pexels-photo-17236943/free-photo-of-woman-hand-holding-white-flower.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="" id="image-3"></li>
+        <li><img width="200px" height="200px"
+                src="https://images.pexels.com/photos/17241191/pexels-photo-17241191/free-photo-of-sunbed-on-sand.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="" id="image-4"></li>
+        <li><img width="200px" height="200px"
+                src="https://images.pexels.com/photos/14093969/pexels-photo-14093969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="" id="image-5"></li>
+        <li><a  href="https://www.google.com" id="link-1" target="_blank">google</a></li>
+    </ul>  -->
+
+    <!-- <form id="formInputs">
+        <input id="Fname" type="text" placeholder="Full name" required>
+        <input type="email" id="email" placeholder="email" required>
+        <input type="password" id="password" placeholder="password" required>
+
+        <input type="submit">
+
+    </form> -->
+
+
+    <!-- <div>
+        <button id="toggleMode">Light</button>
+    </div> -->
+
+    <!-- <div>
+        <button id="display">Show</button>
+        <p id="Para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, vero recusandae cum magni, molestias est corporis dignissimos laborum perferendis voluptatibus ut architecto expedita, sit at cumque minus totam eligendi! Impedit dolorum soluta est voluptate, rerum qui quis fuga necessitatibus corporis. Dolore quod aliquam sunt, odio at dolor deleniti mollitia fugiat.</p>
+    </div> -->
+
+    <!-- 
+    <div>
+        <button id="increment">+</button>
+        <button id="decrement">-</button>
+        <p id="display"></p>
+    </div> -->
+
+    <!-- <div>
+        <button id="disable">Click To Disable</button>
+    </div> -->
+
+    <!-- <div>
+        <textarea id="TextArea"></textarea>
+    </div> -->
+
+    <!-- <div>
+        <input type="password" placeholder="Enter the password!" id="password">
+        <button id="check">Check</button>
+    </div> -->
+
+    <!-- <form id="formInputs">
+        <input type="text" placeholder="Enter your name" id="name">
+        <input type="phone" placeholder="Enter your phone number" id="number">
+        <input type="submit">
+       </form> -->
+    <!-- 
+    <input type="text" placeholder="Enter some text" id="TextInput"> -->
+
+    <!-- <form id="form">
+        <input type="text" placeholder="Enter the name" id="name"> 
+        <textarea id="textInput"></textarea>
+        <input type="submit">
+    </form> -->
+
+
+    <!-- 
+    <select id="Countries">
+        <option value="select">-- Select Country --</option>
+
+    </select>
+
+    <select id="Cities">
+        <option value="select">-- Select --</option>
+    </select> -->
+
+
+
+    <form id="Form" class="max-w-md mx-auto mt-[5rem] bg-white shadow-lg rounded-xl p-6 space-y-4">
+        <h1 class="text-2xl font-bold text-center mb-6 text-blue-600">Form Validation</h1>
+        <div>
+            <input type="text" id="firstName" required placeholder="First Name"
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <small id="firstNameError" class="text-red-500 text-sm"></small>
+        </div>
+
+        <div>
+            <input type="text" id="lastName" placeholder="Last Name"
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required />
+            <small id="lastNameError" class="text-red-500 text-sm"></small>
+        </div>
+
+        <div>
+            <input type="email" id="userEmail" placeholder="Email" required
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <small id="emailError" class="text-red-500 text-sm"></small>
+        </div>
+
+        <div>
+            <input type="tel" id="userPhone" placeholder="Phone Number" required
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <small id="phoneError" class="text-red-500 text-sm"></small>
+        </div>
+        <div class="relative">
+            <input type="password" id="userPassword" required placeholder="Enter Password"
+                class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 pr-10" />
+            <i id="icon"
+                class="fa-regular fa-eye cursor-pointer absolute right-3 top-3 text-gray-600 hover:text-blue-600"></i>
+            <small id="passwordError" class="text-red-500 text-sm"></small>
+        </div>
+
+        <div>
+            <select id="Gender"
+                class="w-full px-4 py-2 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required>
+                <option value="">-- Select Gender --</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+            Submit
+        </button>
+    </form>
+
+    <!-- <form id="form"> -->
+    <!-- <input class="border p-2" type="password" id="password" placeholder="Enter the password">
+    <i id="icon" class="fa-regular fa-eye cursor-pointer ml-[-2rem]"></i> -->
+    <!-- </form> -->
+
+    
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

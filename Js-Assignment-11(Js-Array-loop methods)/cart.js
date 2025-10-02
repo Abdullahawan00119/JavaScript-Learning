@@ -1,9 +1,15 @@
 const cartRece = JSON.parse(localStorage.getItem("cartArray"));
 const cartshow = document.querySelector("#cartshow");
 let multiPrice;
+if (cartRece.length === 0) {
+  alert("No Product for cart add!")
+}
+console.log(cartRece.length);
+
+
+
 const renderCartFun = () => {
   const cartDisplay = cartRece.map((item, index) => {
-
     multiPrice = item.price * item.qty;
     cartshow.innerHTML += `<div class="bg-white py-6 sm:py-8 lg:py-12">
   <div class="mx-auto max-w-screen-lg px-4 md:px-8">
@@ -32,8 +38,8 @@ const renderCartFun = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
-
-                In stock
+                 <span id="stock"> In stock</span>
+               
               </span>
             </div>
           </div>
@@ -90,7 +96,7 @@ const increment = (index) => {
   totalCard();
   cartshow.innerHTML = ""
   renderCartFun()
-  localStorage.setItem("check", JSON.stringify(cartRece));
+  localStorage.setItem("cartArray", JSON.stringify(cartRece));
 };
 
 const decrement = (index) => {
@@ -103,11 +109,8 @@ const decrement = (index) => {
   totalCard();
   cartshow.innerHTML = ""
   renderCartFun()
-  localStorage.setItem("check", JSON.stringify(cartRece));
+  localStorage.setItem("cartArray", JSON.stringify(cartRece));
 }
-
-
-
 
 const totalCard = () => {
   const Subtotal = cartRece.map(item => item.price * item.qty).reduce((acc, cval) => acc + cval, 0);
@@ -153,5 +156,5 @@ const deleteItem = (index) => {
   cartRece.splice(index, 1);
   renderCartFun()
   totalCard()
-  localStorage.setItem("check", JSON.stringify(cartRece));
+  localStorage.setItem("cartArray", JSON.stringify(cartRece));
 }

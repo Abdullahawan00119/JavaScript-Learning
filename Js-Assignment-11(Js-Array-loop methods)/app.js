@@ -292,7 +292,8 @@ const products = [
         price: 799.99,
         category: "Kitchen Appliances",
         brand: "Whirlpool",
-        img: "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400&h=300&fit=crop"
+        img: "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400&h=300&fit=crop",
+        qty : 0
     },
     {
         name: "Dishwasher",
@@ -318,6 +319,8 @@ const categoryDisplay = (items) => {
 
     const flteredProducts = products.filter(item => item.category === items);
     renderFun(flteredProducts);
+    console.log(flteredProducts);
+    
 }
 
 const renderFun = (products) => {
@@ -338,8 +341,8 @@ const renderFun = (products) => {
         <p class="text-sm text-gray-600 mb-1">Category: ${item.category}</p>
         <p class="text-lg font-bold text-indigo-600">$${item.price.toFixed(2)}</p>
         <button onclick="addCart('${index}')" 
-                class="mt-4 w-full bg-indigo-600 text-white py-2 px-4 rounded-xl hover:bg-indigo-700 transition cursor-pointer">
-            Add to Cart
+                class="mt-4 w-full bg-indigo-600 text-white py-2 px-4 rounded-xl hover:bg-indigo-700 transition cursor-pointer" id="AddCartBtn-${index}">
+            ${'Add to Cart'}
         </button>
     </div>
 </div>
@@ -348,6 +351,7 @@ const renderFun = (products) => {
     })
 }
 renderFun(products)
+const AddCartBtn = document.querySelector("#AddCartBtn");
 
 const cartArray = []
 let count;
@@ -361,6 +365,10 @@ const addCart = (index) => {
     } else {
         products[index].qty += 1;
 
+    }
+    if(products[index].qty === 0){
+        AddCartBtn.disabled = true
+        AddCartBtn.innerHTML = "Out Of Stock!"
     }
     localStorage.setItem("cartArray", JSON.stringify(cartArray));
     console.log(cartArray);
