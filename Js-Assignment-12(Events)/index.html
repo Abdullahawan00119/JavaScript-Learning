@@ -168,10 +168,19 @@
                 <option value="Female">Female</option>
             </select>
         </div>
-
-        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+        <div>
+            <label class="space-x-2 flex">
+                <input type="checkbox" id="termCondition">
+                <span class="text-sm">
+                    Agree the terms and conditions
+                </span>
+            </label>
+            <small id="termConditionError" class="text-red-500 text-sm"></small>
+        </div>
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition" id="submitBtn">
             Submit
         </button>
+
     </form>
 
     <!-- <form id="form"> -->
@@ -179,8 +188,8 @@
     <i id="icon" class="fa-regular fa-eye cursor-pointer ml-[-2rem]"></i> -->
     <!-- </form> -->
 
-    
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="app.js"></script>
 </body>
 

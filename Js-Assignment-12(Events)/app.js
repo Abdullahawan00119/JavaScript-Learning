@@ -273,7 +273,8 @@ errors = {
     lastNameError: document.querySelector("#lastNameError"),
     emailError: document.querySelector("#emailError"),
     phoneError: document.querySelector("#phoneError"),
-    passwordError: document.querySelector("#passwordError")
+    passwordError: document.querySelector("#passwordError"),
+    termConditionError: document.querySelector("#termConditionError")
 }
 
 const regex = {
@@ -317,10 +318,34 @@ password.addEventListener("input", () => {
     }
 
 })
+const termCondition = document.querySelector("#termCondition");
+const submitBtn = document.querySelector("#submitBtn");
+
 const userDataSubmit = {}
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     let userValid = true;
+    //     15. Checkbox Agreement
+    // Disable the "Submit" button unless a "Terms and Conditions" checkbox is checked.
+    termCondition.addEventListener("input", () => {
+        if (!termCondition.checked) {
+            errors.termConditionError.innerHTML = "Check the terms and Condition before submitting the form"
+            submitBtn.disabled = true
+        } else {
+            errors.termConditionError.innerHTML = "";
+            submitBtn.disabled = false
+        }
+    })
+
+    if (!termCondition.checked) {
+        errors.termConditionError.innerHTML = "Check the terms and Condition before submitting the form"
+        submitBtn.disabled = true
+        userValid = false
+
+    } else {
+        errors.termConditionError.innerHTML = "";
+        submitBtn.disabled = false
+    }
     if (!regex.firstName.test(firstName.value)) {
         errors.firstNameError.innerHTML = "First name must be 2–30 letters ";
         userValid = false;
