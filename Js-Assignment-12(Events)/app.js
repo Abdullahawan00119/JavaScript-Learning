@@ -261,146 +261,142 @@
 // Validate all fields (e.g., name, email) when the form is submitted. Show inline error
 // messages.
 
-const form = document.querySelector("#Form");
-const firstName = document.querySelector("#firstName");
-const lastName = document.querySelector("#lastName");
-const userPhone = document.querySelector("#userPhone");
-const Gender = document.querySelector("#Gender");
-const userEmail = document.querySelector("#userEmail");
+// const form = document.querySelector("#Form");
+// const firstName = document.querySelector("#firstName");
+// const lastName = document.querySelector("#lastName");
+// const userPhone = document.querySelector("#userPhone");
+// const Gender = document.querySelector("#Gender");
+// const userEmail = document.querySelector("#userEmail");
 
-errors = {
-    firstNameError: document.querySelector("#firstNameError"),
-    lastNameError: document.querySelector("#lastNameError"),
-    emailError: document.querySelector("#emailError"),
-    phoneError: document.querySelector("#phoneError"),
-    passwordError: document.querySelector("#passwordError"),
-    termConditionError: document.querySelector("#termConditionError")
-}
+// errors = {
+//     firstNameError: document.querySelector("#firstNameError"),
+//     lastNameError: document.querySelector("#lastNameError"),
+//     emailError: document.querySelector("#emailError"),
+//     phoneError: document.querySelector("#phoneError"),
+//     passwordError: document.querySelector("#passwordError"),
+//     termConditionError: document.querySelector("#termConditionError")
+// }
 
-const regex = {
-    firstName: /^[A-Za-z]{3,30}$/,
-    lastName: /^[A-Za-z]{3,30}$/,
-    email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-    phone: /^\+?[0-9]{10,15}$/,
-    strongPassword: /^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).*$/
-};
-const icon = document.querySelector("#icon");
-const password = document.querySelector("#userPassword");
-icon.addEventListener("click", () => {
-    if (password.type === "password") {
-        password.type = "text";
-        icon.classList.remove("fa-eye");
-        icon.classList.add("fa-eye-slash");
-    } else {
-        password.type = "password";
-        icon.classList.remove("fa-eye-slash")
-        icon.classList.add("fa-eye")
-    }
-})
-const passwordRegix = [
-    { pssrigix: /^.{0,5}$/, show: "Too short" },
-    { pssrigix: /^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).*$/, show: "Strong" },
-    { pssrigix: /^(?=.{6,})(?=.*[A-Za-z])(?=.*\d).*$/, show: "Medium" }
+// const regex = {
+//     firstName: /^[A-Za-z]{3,30}$/,
+//     lastName: /^[A-Za-z]{3,30}$/,
+//     email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+//     phone: /^\+?[0-9]{10,15}$/,
+//     strongPassword: /^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).*$/
+// };
+// const icon = document.querySelector("#icon");
+// const password = document.querySelector("#userPassword");
+// icon.addEventListener("click", () => {
+//     if (password.type === "password") {
+//         password.type = "text";
+//         icon.classList.remove("fa-eye");
+//         icon.classList.add("fa-eye-slash");
+//     } else {
+//         password.type = "password";
+//         icon.classList.remove("fa-eye-slash")
+//         icon.classList.add("fa-eye")
+//     }
+// })
+// const passwordRegix = [
+//     { pssrigix: /^.{0,5}$/, show: "Too short" },
+//     { pssrigix: /^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).*$/, show: "Strong" },
+//     { pssrigix: /^(?=.{6,})(?=.*[A-Za-z])(?=.*\d).*$/, show: "Medium" }
 
-]
-password.addEventListener("input", () => {
-    if (password.value.length === 0) {
-        icon.style.display = "none"
-    } else {
-        icon.style.display = "inline"
-    }
-    errors.passwordError.innerHTML = "";
-    const matched = passwordRegix.find(item => item.pssrigix.test(password.value))
-    if (matched) {
-        errors.passwordError.innerHTML = matched.show;
-    } else {
-        errors.passwordError.innerHTML = ""
-    }
+// ]
+// password.addEventListener("input", () => {
+//     if (password.value.length === 0) {
+//         icon.style.display = "none"
+//     } else {
+//         icon.style.display = "inline"
+//     }
+//     errors.passwordError.innerHTML = "";
+//     const matched = passwordRegix.find(item => item.pssrigix.test(password.value))
+//     if (matched) {
+//         errors.passwordError.innerHTML = matched.show;
+//     } else {
+//         errors.passwordError.innerHTML = ""
+//     }
 
-})
-const termCondition = document.querySelector("#termCondition");
-const submitBtn = document.querySelector("#submitBtn");
+// })
+// const termCondition = document.querySelector("#termCondition");
+// const submitBtn = document.querySelector("#submitBtn");
 
-const userDataSubmit = {}
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    let userValid = true;
-    //     15. Checkbox Agreement
-    // Disable the "Submit" button unless a "Terms and Conditions" checkbox is checked.
-    termCondition.addEventListener("input", () => {
-        if (!termCondition.checked) {
-            errors.termConditionError.innerHTML = "Check the terms and Condition before submitting the form"
-            submitBtn.disabled = true
-        } else {
-            errors.termConditionError.innerHTML = "";
-            submitBtn.disabled = false
-        }
-    })
+// const userDataSubmit = {}
+// form.addEventListener("submit", (event) => {
+//     event.preventDefault();
+//     let userValid = true;
+//     //     15. Checkbox Agreement
+//     // Disable the "Submit" button unless a "Terms and Conditions" checkbox is checked.
+//     termCondition.addEventListener("input", () => {
+//         if (!termCondition.checked) {
+//             errors.termConditionError.innerHTML = "Check the terms and Condition before submitting the form"
+//             submitBtn.disabled = true
+//         } else {
+//             errors.termConditionError.innerHTML = "";
+//             submitBtn.disabled = false
+//         }
+//     })
 
-    if (!termCondition.checked) {
-        errors.termConditionError.innerHTML = "Check the terms and Condition before submitting the form"
-        submitBtn.disabled = true
-        userValid = false
+//     if (!termCondition.checked) {
+//         errors.termConditionError.innerHTML = "Check the terms and Condition before submitting the form"
+//         submitBtn.disabled = true
+//         userValid = false
 
-    } else {
-        errors.termConditionError.innerHTML = "";
-        submitBtn.disabled = false
-    }
-    if (!regex.firstName.test(firstName.value)) {
-        errors.firstNameError.innerHTML = "First name must be 2–30 letters ";
-        userValid = false;
-    } else {
-        errors.firstNameError.innerHTML = ""
-    }
-    if (!regex.lastName.test(lastName.value)) {
-        errors.lastNameError.innerHTML = "Last name must be 2–30 letters "
-        userValid = false
-    } else {
-        errors.lastNameError.innerHTML = ""
-    }
+//     } else {
+//         errors.termConditionError.innerHTML = "";
+//         submitBtn.disabled = false
+//     }
+//     if (!regex.firstName.test(firstName.value)) {
+//         errors.firstNameError.innerHTML = "First name must be 2–30 letters ";
+//         userValid = false;
+//     } else {
+//         errors.firstNameError.innerHTML = ""
+//     }
+//     if (!regex.lastName.test(lastName.value)) {
+//         errors.lastNameError.innerHTML = "Last name must be 2–30 letters "
+//         userValid = false
+//     } else {
+//         errors.lastNameError.innerHTML = ""
+//     }
 
-    if (!regex.email.test(userEmail.value)) {
-        errors.emailError.innerHTML = "Enter the Valid Email Address!"
-        userValid = false
-    } else {
-        errors.emailError.innerHTML = ""
-    }
+//     if (!regex.email.test(userEmail.value)) {
+//         errors.emailError.innerHTML = "Enter the Valid Email Address!"
+//         userValid = false
+//     } else {
+//         errors.emailError.innerHTML = ""
+//     }
 
-    if (!regex.phone.test(userPhone.value)) {
-        errors.phoneError.innerHTML = "Enter a valid phone number!"
-        userValid = false
-    } else {
-        errors.phoneError.innerHTML = ""
-    }
-    if (!regex.strongPassword.test(password.value)) {
-        errors.passwordError.innerHTML = "Enter a Strong Password!"
-        userValid = false
-    } else {
-        errors.passwordError.innerHTML = ""
-    }
-    const Gender = document.querySelector("#Gender");
-    const selectedValue = Gender.value;
-    if (userValid) {
-        userDataSubmit.firstName = firstName.value;
-        userDataSubmit.lastName = lastName.value;
-        userDataSubmit.email = userEmail.value;
-        userDataSubmit.phone = userPhone.value;
-        userDataSubmit.password = password.value;
-        console.log(userDataSubmit);
-        swal.fire("Good job!", "Form Submitted Successfully!", "success")
-        password.value = ""
-        userEmail.value = ""
-        userPhone.value = ""
-        firstName.value = ""
-        lastName.value = ""
-        password.value = ""
-        Gender.value = ""
-    }
-
-
-
-
-})
+//     if (!regex.phone.test(userPhone.value)) {
+//         errors.phoneError.innerHTML = "Enter a valid phone number!"
+//         userValid = false
+//     } else {
+//         errors.phoneError.innerHTML = ""
+//     }
+//     if (!regex.strongPassword.test(password.value)) {
+//         errors.passwordError.innerHTML = "Enter a Strong Password!"
+//         userValid = false
+//     } else {
+//         errors.passwordError.innerHTML = ""
+//     }
+//     const Gender = document.querySelector("#Gender");
+//     const selectedValue = Gender.value;
+//     if (userValid) {
+//         userDataSubmit.firstName = firstName.value;
+//         userDataSubmit.lastName = lastName.value;
+//         userDataSubmit.email = userEmail.value;
+//         userDataSubmit.phone = userPhone.value;
+//         userDataSubmit.password = password.value;
+//         console.log(userDataSubmit);
+//         swal.fire("Good job!", "Form Submitted Successfully!", "success")
+//         password.value = ""
+//         userEmail.value = ""
+//         userPhone.value = ""
+//         firstName.value = ""
+//         lastName.value = ""
+//         password.value = ""
+//         Gender.value = ""
+//     }
+// })
 
 
 // 13. Show/Hide Password
@@ -420,4 +416,107 @@ form.addEventListener("submit", (event) => {
 //         icon.classList.add("fa-eye")
 //     }
 
+// })
+
+
+// 14. Color Picker Live Preview
+// Use an <input type="color"> to change the background color of a preview box
+// live.
+
+// const colorInput = document.querySelector("#colorInput");
+// const previewBox = document.querySelector("#previewBox");
+// colorInput.addEventListener("input", () => {
+//     previewBox.style.backgroundColor = colorInput.value
+//     previewBox.style.width = "300px"
+// })
+
+
+// 16. Image Hover Preview
+// Show a larger preview of an image when hovering over a thumbnail using mouseover  and mouseout.
+// const img = document.querySelector("#img");
+// img.addEventListener("mouseover", () => {
+//     img.style.width = "500px"
+// })
+// img.addEventListener("mouseout", () => {
+//     img.style.width = ""
+// })
+
+
+
+
+// 17. Scroll to Reveal Button
+// Display a "Back to Top" button only when the user scrolls down 300px or more.
+
+
+// const scrollTop = document.querySelector("#scrollTop");
+// window.addEventListener("scroll", () => {
+//     if (window.scrollY < 300) {
+//         scrollTop.style.display = "none"
+//         console.log("scrool kam ha");
+//     } else {
+//         scrollTop.style.display = "inline"
+//         console.log("Scroll ho gia ha");
+
+//     }
+// })
+// scrollTop.addEventListener("click", () => {
+//       window.scrollTo({
+//         top : 0 , behavior: "smooth"
+//       })
+// })
+
+
+
+// 18. Form Auto Save
+// Save form inputs to localStorage as the user types and restore them on reload.
+
+// const form = document.querySelector("#form");
+// const formName = document.querySelector("#name");
+// const formPhone = document.querySelector("#phone");
+// const submitForm = document.querySelector("#submit");
+// form.addEventListener("input", () => {
+
+//     const formInputs = {
+//         name: formName.value,
+//         phone: formPhone.value
+//     }
+//     const storevalues = localStorage.setItem("Form", JSON.stringify(formInputs));
+//     console.log(formInputs, "during input typing store");
+// })
+// window.addEventListener("DOMContentLoaded", () => {
+//     const formSave = JSON.parse(localStorage.getItem("Form")) || ""
+//     formName.value = formSave.name || ""
+//     formPhone.value = formSave.phone || ""
+// })
+// form.addEventListener("submit", (event) => {
+//     event.preventDefault();
+//     localStorage.removeItem("Form")
+//     formName.value = ""
+//     formPhone.value = ""
+// })
+
+
+// 19. Click Outside
+//  closes when clicking anywhere outside of it.
+// const openModal = document.querySelector("#openModal");
+// const overlay = document.querySelector("#overlay");
+// const closeBtn = document.querySelector("#closeBtn");
+// openModal.addEventListener("click", () => {
+//     overlay.classList.remove("hidden")
+//     overlay.classList.add("flex")
+// })
+// const closeModal = () => {
+//     overlay.classList.remove("flex")
+//     overlay.classList.add("hidden")
+// }
+// overlay.addEventListener("click", (event) => {
+//     if (event.target === overlay) {
+//         closeModal()
+//     }
+// })
+// closeBtn.addEventListener("click", () => {
+//     closeModal()
+// })
+// closeBtn.addEventListener("click", () => {
+//     closeModal()
 // })
