@@ -1,5 +1,3 @@
-console.log("Weather App");
-
 const apiKey = "a84fe2767a08484682c192022250410";
 const displayData = document.querySelector("#displayData");
 const form = document.querySelector("#form");
@@ -8,6 +6,10 @@ form.addEventListener("submit", (event) => {
          event.preventDefault();
 let city = document.querySelector("#searchInput");
 let cityValue = city.value.trim().toLowerCase();
+if(!cityValue){
+    displayData.innerHTML = "Enter the City name!"
+    return
+}
   if(dataArray.find(item => item.city.toLowerCase() === cityValue)){
             alert("Already checked")
             return
