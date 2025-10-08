@@ -3,17 +3,11 @@ console.log("Weather App");
 const apiKey = "a84fe2767a08484682c192022250410";
 const displayData = document.querySelector("#displayData");
 const form = document.querySelector("#form");
-
-// const apiUrl = fetch(`http://api.weatherapi.com/v1/current.json?key=b4db485d7c4c485fa6d84351232508&q=${city}&aqi=no`);
-// const apiUrl = fetch("http://api.weatherapi.com/v1/current.json?key=b4db485d7c4c485fa6d84351232508&q=karachi&aqi=no");
-//   const apiUrl = ;
-
 let dataArray = [];
 form.addEventListener("submit", (event) => {
          event.preventDefault();
 let city = document.querySelector("#searchInput");
 let cityValue = city.value.trim().toLowerCase();
-console.log(cityValue);
   if(dataArray.find(item => item.city.toLowerCase() === cityValue)){
             alert("Already checked")
             return
@@ -21,15 +15,9 @@ console.log(cityValue);
 
     const weatherApiFetch = async () => {
     try {
-        // displayData.innerHTML = "Loading"
+        displayData.innerHTML = "Checking...."
         const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=b4db485d7c4c485fa6d84351232508&q=${cityValue}&aqi=no`);
         const data = await response.json();
-        console.log(data.location);
-        console.log(data.current);
-        // const date = new Date();
-        // const day = date.getDay(data.current.is_day);
-        // console.log(day);
-
         const dataSelected = {
             country: data.location.country,
             city: data.location.name,
@@ -44,9 +32,6 @@ console.log(cityValue);
             wind : data.current.wind_kph
         }
         dataArray.unshift(dataSelected)
-        console.log(dataArray , "DataArray");
-      
-        console.log(dataSelected);
         displayData.innerHTML = ""
         dataArray.forEach(item =>{
              const newCard = `
@@ -55,9 +40,7 @@ console.log(cityValue);
           <div class="flex items-center mb-4">
   <i class="fas fa-map-marker-alt text-red-500 mr-2"></i>
   <h2 class="text-xl font-medium">${item.city}, ${item.country}</h2>
-</div>
-
-            
+</div>      
             <div class="flex flex-col md:flex-row justify-between items-center mb-6">
                 <div class="text-center  md:text-left mb-4 md:mb-0">
                     <div class="text-6xl font-light mb-2">${item.temperature}°C</div> 
@@ -117,8 +100,7 @@ console.log(cityValue);
         displayData.insertAdjacentHTML("beforeend" , newCard)
         })
     } catch (error) {
-        alert("this is not a city")
-
+        alert("This is not a city")
     }
 }
 weatherApiFetch()        
