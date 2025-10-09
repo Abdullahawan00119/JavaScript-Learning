@@ -17,7 +17,6 @@ const videoApi = async () => {
             if (number >= 9) {
                 number = 0
             }
-            console.log(number);
             dataID = data[number].items.id
             video.src = "https://www.youtube.com/embed/" + dataID;
         })
