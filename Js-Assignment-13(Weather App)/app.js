@@ -16,8 +16,11 @@ if(!cityValue){
         }
 
     const weatherApiFetch = async () => {
+         displayData.innerHTML =  `<div class="flex justify-center items-center h-[20rem] ">
+  <div class="h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-white"></div>
+</div>
+`
     try {
-        displayData.innerHTML = "Checking...."
         const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=b4db485d7c4c485fa6d84351232508&q=${cityValue}&aqi=no`);
         const data = await response.json();
         const dataSelected = {
